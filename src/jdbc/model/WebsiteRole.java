@@ -8,6 +8,8 @@ public class WebsiteRole {
     private int websiteId;
     private int developeId;
     private int roleId;
+    private Website website;
+    private Developer developer;
 
     public WebsiteRole() {
     }
@@ -70,5 +72,21 @@ public class WebsiteRole {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public Website getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(Website website) {
+        this.website = website;
+    }
+
+    public Developer getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
     }
 }

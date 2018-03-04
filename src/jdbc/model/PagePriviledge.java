@@ -8,6 +8,8 @@ public class PagePriviledge {
     private int pageId;
     private int developerId;
     private int priviledgeId;
+    private Page page;
+    private Developer developer;
 
     public PagePriviledge() {
     }
@@ -70,5 +72,21 @@ public class PagePriviledge {
 
     public void setPriviledgeId(int priviledgeId) {
         this.priviledgeId = priviledgeId;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
+    }
+
+    public Developer getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
     }
 }

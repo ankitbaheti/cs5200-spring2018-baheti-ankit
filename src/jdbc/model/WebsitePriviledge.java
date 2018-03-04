@@ -8,6 +8,8 @@ public class WebsitePriviledge {
     private int websiteId;
     private int developerId;
     private int priviledgeId;
+    private Developer developer;
+    private Website website;
 
     public WebsitePriviledge() {
     }
@@ -70,5 +72,21 @@ public class WebsitePriviledge {
 
     public void setPriviledgeId(int priviledgeId) {
         this.priviledgeId = priviledgeId;
+    }
+
+    public Developer getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
+    }
+
+    public Website getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(Website website) {
+        this.website = website;
     }
 }

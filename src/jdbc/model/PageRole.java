@@ -8,6 +8,8 @@ public class PageRole {
     private int pageId;
     private int developerId;
     private int roleId;
+    private Page page;
+    private Developer developer;
 
     public PageRole() {
     }
@@ -70,5 +72,21 @@ public class PageRole {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
+    }
+
+    public Developer getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
     }
 }

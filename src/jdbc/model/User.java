@@ -1,6 +1,6 @@
 package jdbc.model;
 
-public class User {
+public class User extends Person{
 
     private int id;
     private String userKey;
