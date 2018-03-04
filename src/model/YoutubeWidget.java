@@ -1,4 +1,4 @@
-package jdbc.model;
+package model;
 
 public class YoutubeWidget extends Widget{
 

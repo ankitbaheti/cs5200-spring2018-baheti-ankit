@@ -1,4 +1,4 @@
-package jdbc.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Date;

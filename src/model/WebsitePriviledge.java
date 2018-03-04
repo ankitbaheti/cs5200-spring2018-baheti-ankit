@@ -1,37 +1,37 @@
-package jdbc.model;
+package model;
 
-public class PagePriviledge {
+public class WebsitePriviledge {
 
-    private String pageName;
+    private String websiteName;
     private String developerName;
     private String priviledgeName;
-    private int pageId;
+    private int websiteId;
     private int developerId;
     private int priviledgeId;
-    private Page page;
     private Developer developer;
+    private Website website;
 
-    public PagePriviledge() {
+    public WebsitePriviledge() {
     }
 
-    public PagePriviledge(String pageName, String developerName, String priviledgeName) {
-        this.pageName = pageName;
+    public WebsitePriviledge(String websiteName, String developerName, String priviledgeName) {
+        this.websiteName = websiteName;
         this.developerName = developerName;
         this.priviledgeName = priviledgeName;
     }
 
-    public PagePriviledge(int pageId, int developerId, int priviledgeId) {
-        this.pageId = pageId;
+    public WebsitePriviledge(int websiteId, int developerId, int priviledgeId) {
+        this.websiteId = websiteId;
         this.developerId = developerId;
         this.priviledgeId = priviledgeId;
     }
 
-    public String getPageName() {
-        return pageName;
+    public String getWebsiteName() {
+        return websiteName;
     }
 
-    public void setPageName(String pageName) {
-        this.pageName = pageName;
+    public void setWebsiteName(String websiteName) {
+        this.websiteName = websiteName;
     }
 
     public String getDeveloperName() {
@@ -50,12 +50,12 @@ public class PagePriviledge {
         this.priviledgeName = priviledgeName;
     }
 
-    public int getPageId() {
-        return pageId;
+    public int getWebsiteId() {
+        return websiteId;
     }
 
-    public void setPageId(int pageId) {
-        this.pageId = pageId;
+    public void setWebsiteId(int websiteId) {
+        this.websiteId = websiteId;
     }
 
     public int getDeveloperId() {
@@ -74,19 +74,19 @@ public class PagePriviledge {
         this.priviledgeId = priviledgeId;
     }
 
-    public Page getPage() {
-        return page;
-    }
-
-    public void setPage(Page page) {
-        this.page = page;
-    }
-
     public Developer getDeveloper() {
         return developer;
     }
 
     public void setDeveloper(Developer developer) {
         this.developer = developer;
+    }
+
+    public Website getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(Website website) {
+        this.website = website;
     }
 }

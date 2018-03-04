@@ -1,29 +1,29 @@
-package jdbc.model;
+package model;
 
-public class PageRole {
+public class PagePriviledge {
 
     private String pageName;
     private String developerName;
-    private String roleName;
+    private String priviledgeName;
     private int pageId;
     private int developerId;
-    private int roleId;
+    private int priviledgeId;
     private Page page;
     private Developer developer;
 
-    public PageRole() {
+    public PagePriviledge() {
     }
 
-    public PageRole(String pageName, String developerName, String roleName) {
+    public PagePriviledge(String pageName, String developerName, String priviledgeName) {
         this.pageName = pageName;
         this.developerName = developerName;
-        this.roleName = roleName;
+        this.priviledgeName = priviledgeName;
     }
 
-    public PageRole(int pageId, int developerId, int roleId) {
+    public PagePriviledge(int pageId, int developerId, int priviledgeId) {
         this.pageId = pageId;
         this.developerId = developerId;
-        this.roleId = roleId;
+        this.priviledgeId = priviledgeId;
     }
 
     public String getPageName() {
@@ -42,12 +42,12 @@ public class PageRole {
         this.developerName = developerName;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getPriviledgeName() {
+        return priviledgeName;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setPriviledgeName(String priviledgeName) {
+        this.priviledgeName = priviledgeName;
     }
 
     public int getPageId() {
@@ -66,12 +66,12 @@ public class PageRole {
         this.developerId = developerId;
     }
 
-    public int getRoleId() {
-        return roleId;
+    public int getPriviledgeId() {
+        return priviledgeId;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setPriviledgeId(int priviledgeId) {
+        this.priviledgeId = priviledgeId;
     }
 
     public Page getPage() {
