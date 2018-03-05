@@ -3,7 +3,7 @@ package interfaceDao;
 import model.Developer;
 import java.util.Collection;
 
-public interface DeveloperDaoInterface {
+public interface DeveloperDAOInterface {
 
     int createDeveloper(Developer developer);
 

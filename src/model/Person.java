@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class Person {
@@ -30,7 +30,8 @@ public class Person {
         this.dob = dob;
     }
 
-    public Person(int id, String firstName, String lastName, String username, String password, String email, Date dob, List<Developer> developers, List<User> users) {
+    public Person(int id, String firstName, String lastName, String username, String password, String email, Date dob,
+                  List<Developer> developers, List<User> users) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

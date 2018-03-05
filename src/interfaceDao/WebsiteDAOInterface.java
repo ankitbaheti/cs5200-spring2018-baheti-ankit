@@ -3,7 +3,7 @@ package interfaceDao;
 import model.Website;
 import java.util.Collection;
 
-public interface WebsiteDaoInterface {
+public interface WebsiteDAOInterface {
 
     int createWebsiteForDeveloper(int developerId, Website website);
 

@@ -1,6 +1,6 @@
 package interfaceDao;
 
-public interface RoleDaoInterface {
+public interface RoleDAOInterface {
 
     void assignWebsiteRole(int developerId, int websiteId, int roleId);
 

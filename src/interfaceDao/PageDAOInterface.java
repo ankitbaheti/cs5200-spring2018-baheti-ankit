@@ -3,7 +3,7 @@ package interfaceDao;
 import model.Page;
 import java.util.Collection;
 
-public interface PageDaoInterface {
+public interface PageDAOInterface {
 
     int createPageForWebsite(int websiteId, Page page);
 

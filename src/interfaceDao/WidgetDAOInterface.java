@@ -3,7 +3,7 @@ package interfaceDao;
 import model.Widget;
 import java.util.Collection;
 
-public interface WidgetDaoInterface {
+public interface WidgetDAOInterface {
 
     int createWidgetForPage(int pageId, Widget widget);
 

@@ -1,6 +1,6 @@
 package interfaceDao;
 
-public interface PriviledgeDaoInterface {
+public interface PriviledgeDAOInterface {
 
     void assignWebsitePriviledge(int developerId, int websiteId, int priviledgeId);
 
