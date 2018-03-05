@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class Website {
@@ -18,6 +18,18 @@ public class Website {
     private List<WebsitePriviledge> websitePriviledge = new ArrayList<>();
 
     public Website() {
+    }
+
+    public Website(int id, String name, String description, Date created, Date updated, int visit, Developer developer,
+                   List<WebsiteRole> websiteRoles){
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.created = created;
+        this.updated = updated;
+        this.visit = visit;
+        this.developer = developer;
+        this.websiteRoles = websiteRoles;
     }
 
     public Website(int id, String name, String description, Date created, Date updated, int visit, Developer developer,

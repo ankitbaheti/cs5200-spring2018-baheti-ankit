@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class Page {
@@ -18,6 +18,18 @@ public class Page {
     private List<PagePriviledge> pagePriviledge = new ArrayList<>();
 
     public Page() {
+    }
+
+    public Page(int id, String title, String description, Date created, Date updated, int views, Website website,
+                List<PageRole> pageRole){
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.created = created;
+        this.updated = updated;
+        this.views = views;
+        this.website = website;
+        this.pageRole = pageRole;
     }
 
     public Page(int id, String title, String description, Date created, Date updated, int views, Website website,
