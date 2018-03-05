@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="575c8b03-e52e-44fd-bc3b-474a29a74081" name="Default" comment="completed few DAO classes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Page.java" afterPath="$PROJECT_DIR$/src/model/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/PageDAO.java" afterPath="$PROJECT_DIR$/src/model/PageDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Website.java" afterPath="$PROJECT_DIR$/src/model/Website.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WebsiteDAO.java" afterPath="$PROJECT_DIR$/src/model/WebsiteDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/User.java" afterPath="$PROJECT_DIR$/src/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/UserDAO.java" afterPath="$PROJECT_DIR$/src/model/UserDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Widget.java" afterPath="$PROJECT_DIR$/src/model/Widget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WidgetDAO.java" afterPath="$PROJECT_DIR$/src/model/WidgetDAO.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +33,8 @@
       <file leaf-file-name="PageDAO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/PageDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="181" column="25" lean-forward="true" selection-start-line="181" selection-start-column="25" selection-end-line="181" selection-end-column="25" />
+            <state relative-caret-position="508">
+              <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,60 +54,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PriviledgeDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/PriviledgeDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1665">
-              <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DeveloperDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/DeveloperDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1472">
-              <caret line="102" column="62" lean-forward="false" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="62" />
+            <state relative-caret-position="22">
+              <caret line="144" column="40" lean-forward="false" selection-start-line="144" selection-start-column="40" selection-end-line="144" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebsiteRole.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/WebsiteRole.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Website.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Website.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-              <folding>
-                <element signature="e#539#540#0" expanded="true" />
-                <element signature="e#569#570#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,9 +69,56 @@
       <file leaf-file-name="WidgetDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/WidgetDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="68" lean-forward="false" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
+            <state relative-caret-position="412">
+              <caret line="195" column="25" lean-forward="true" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeadingWidget.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/HeadingWidget.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Widget.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Widget.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1560">
+              <caret line="152" column="5" lean-forward="true" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="e#547#548#0" expanded="true" />
+                <element signature="e#577#578#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/UserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/model/Developer.java" />
         <option value="$PROJECT_DIR$/src/model/ImageWidget.java" />
         <option value="$PROJECT_DIR$/src/model/YoutubeWidget.java" />
-        <option value="$PROJECT_DIR$/src/model/Widget.java" />
         <option value="$PROJECT_DIR$/src/model/WebsiteRole.java" />
         <option value="$PROJECT_DIR$/src/model/WebsitePriviledge.java" />
         <option value="$PROJECT_DIR$/src/model/Role.java" />
@@ -192,17 +191,18 @@
         <option value="$PROJECT_DIR$/src/interfaceDao/WidgetDaoInterface.java" />
         <option value="$PROJECT_DIR$/src/model/BaseDAO.java" />
         <option value="$PROJECT_DIR$/src/interfaceDao/UserDAOInterface.java" />
-        <option value="$PROJECT_DIR$/src/model/User.java" />
         <option value="$PROJECT_DIR$/src/model/Person.java" />
-        <option value="$PROJECT_DIR$/src/model/UserDAO.java" />
-        <option value="$PROJECT_DIR$/src/model/DeveloperDAO.java" />
-        <option value="$PROJECT_DIR$/src/model/WidgetDAO.java" />
         <option value="$PROJECT_DIR$/src/model/PriviledgeDAO.java" />
         <option value="$PROJECT_DIR$/src/model/RoleDAO.java" />
         <option value="$PROJECT_DIR$/src/model/Website.java" />
         <option value="$PROJECT_DIR$/src/model/Page.java" />
         <option value="$PROJECT_DIR$/src/model/PageDAO.java" />
         <option value="$PROJECT_DIR$/src/model/WebsiteDAO.java" />
+        <option value="$PROJECT_DIR$/src/model/DeveloperDAO.java" />
+        <option value="$PROJECT_DIR$/src/model/Widget.java" />
+        <option value="$PROJECT_DIR$/src/model/User.java" />
+        <option value="$PROJECT_DIR$/src/model/UserDAO.java" />
+        <option value="$PROJECT_DIR$/src/model/WidgetDAO.java" />
       </list>
     </option>
   </component>
@@ -435,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520271789898</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="completed few DAO classes">
+      <created>1520285341045</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1520285341045</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -549,14 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/HeadingWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaceDao/PageDAOInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -637,14 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Widget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -683,35 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="62" column="56" lean-forward="false" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding>
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/WidgetDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="68" lean-forward="false" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/WebsiteRole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -738,26 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/PriviledgeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1665">
-          <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/DeveloperDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1472">
-          <caret line="102" column="62" lean-forward="false" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Page.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -778,10 +720,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/PriviledgeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1665">
+          <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Widget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="152" column="5" lean-forward="true" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/HeadingWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/DeveloperDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="144" column="40" lean-forward="false" selection-start-line="144" selection-start-column="40" selection-end-line="144" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/WidgetDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="195" column="25" lean-forward="true" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/PageDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="181" column="25" lean-forward="true" selection-start-line="181" selection-start-column="25" selection-end-line="181" selection-end-column="25" />
+        <state relative-caret-position="508">
+          <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -4,13 +4,13 @@ public class User extends Person{
 
     private int id;
     private String userKey;
-    private int userAgreement;
+    private boolean userAgreement;
     private Person person;
 
     public User() {
     }
 
-    public User(int id, String userKey, int userAgreement, Person person) {
+    public User(int id, String userKey, boolean userAgreement, Person person) {
         this.id = id;
         this.userKey = userKey;
         this.userAgreement = userAgreement;
@@ -33,11 +33,11 @@ public class User extends Person{
         this.userKey = userKey;
     }
 
-    public int getUserAgreement() {
+    public boolean getUserAgreement() {
         return userAgreement;
     }
 
-    public void setUserAgreement(int userAgreement) {
+    public void setUserAgreement(boolean userAgreement) {
         this.userAgreement = userAgreement;
     }
 

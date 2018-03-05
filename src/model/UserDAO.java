@@ -30,7 +30,7 @@ public class UserDAO extends BaseDAO implements UserDAOInterface{
             String sql = "insert into user(id, userAgreement, userKey, Person) values (?,?,?,?);";
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, user.getId());
-            pstm.setInt(2, user.getUserAgreement());
+            pstm.setBoolean(2, user.getUserAgreement());
             pstm.setString(3, user.getUserKey());
             pstm.setInt(4, user.getPerson().getId());
             result = pstm.executeUpdate();
