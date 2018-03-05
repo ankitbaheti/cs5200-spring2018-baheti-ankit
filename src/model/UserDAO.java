@@ -19,28 +19,6 @@ public class UserDAO extends BaseDAO implements UserDAOInterface{
         return instance;
     }
 
-    private void createPerson(Person person){
-        try {
-            Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "insert into Person(id, firstName, lastName, username, password, email, dob) values (?,?,?" +
-                    ",?,?,?,?);";
-            pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, person.getId());
-            pstm.setString(2, person.getFirstName());
-            pstm.setString(3,person.getLastName());
-            pstm.setString(4, person.getUsername());
-            pstm.setString(5, person.getPassword());
-            pstm.setString(6, person.getEmail());
-            pstm.setDate(7, person.getDob());
-            pstm.executeUpdate();
-            pstm.close();
-            conn.close();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public int createUser(User user) {
 
@@ -63,5 +41,27 @@ public class UserDAO extends BaseDAO implements UserDAOInterface{
         }
 
         return result;
+    }
+
+    private void createPerson(Person person){
+        try {
+            Class.forName(JDBC_DRIVER);
+            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "insert into Person(id, firstName, lastName, username, password, email, dob) values (?,?,?" +
+                    ",?,?,?,?);";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, person.getId());
+            pstm.setString(2, person.getFirstName());
+            pstm.setString(3,person.getLastName());
+            pstm.setString(4, person.getUsername());
+            pstm.setString(5, person.getPassword());
+            pstm.setString(6, person.getEmail());
+            pstm.setDate(7, person.getDob());
+            pstm.executeUpdate();
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
