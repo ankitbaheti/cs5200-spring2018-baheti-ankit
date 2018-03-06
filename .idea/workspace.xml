@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="575c8b03-e52e-44fd-bc3b-474a29a74081" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cs5200-spring2018-baheti-ankit.iml" afterPath="$PROJECT_DIR$/cs5200-spring2018-baheti-ankit.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/BaseDAO.java" afterPath="$PROJECT_DIR$/src/model/BaseDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/DeveloperDAO.java" afterPath="$PROJECT_DIR$/src/model/DeveloperDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/PageDAO.java" afterPath="$PROJECT_DIR$/src/model/PageDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/PriviledgeDAO.java" afterPath="$PROJECT_DIR$/src/model/PriviledgeDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/RoleDAO.java" afterPath="$PROJECT_DIR$/src/model/RoleDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/UserDAO.java" afterPath="$PROJECT_DIR$/src/model/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WebsiteDAO.java" afterPath="$PROJECT_DIR$/src/model/WebsiteDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WidgetDAO.java" afterPath="$PROJECT_DIR$/src/model/WidgetDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/main.java" afterPath="$PROJECT_DIR$/src/model/main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -485,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520295832686</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="writing main class">
+      <created>1520297250242</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1520297250242</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
