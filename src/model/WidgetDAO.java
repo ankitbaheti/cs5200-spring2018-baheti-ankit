@@ -2,9 +2,7 @@ package model;
 
 import interfaceDao.WidgetDAOInterface;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -28,10 +26,10 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into widget(id, name, width, height, cssClass, cssStyle, text, `order`, url, " +
                     "shareable, expandable, src, html, type, page) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, widget.getId());
             pstm.setString(2, widget.getName());
             pstm.setInt(3, widget.getWidth());
@@ -62,9 +60,9 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         ResultSet rs;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from widget;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             widgetList = getWidgetFromRS(rs);
             pstm.close();
@@ -111,9 +109,9 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         ResultSet rs;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from widget where id = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, widgetId);
             rs = pstm.executeQuery();
             widgetList = getWidgetFromRS(rs);
@@ -133,9 +131,9 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         List<Widget> widgetList = new ArrayList<>();
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from widget where page = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, pageId);
             rs = pstm.executeQuery();
             widgetList = getWidgetFromRS(rs);
@@ -152,11 +150,11 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "update widget set name = ?, width = ?, height = ?, cssClass = ?, cssStyle = ?, text = ?, " +
                     "`order` = ?, url = ?, shareable = ?, expandable = ?, src = ?, size = ?, html = ?, type = ?, " +
                     "page = ? where id = ?";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, widget.getName());
             pstm.setInt(2, widget.getWidth());
             pstm.setInt(3, widget.getHeight());
@@ -187,9 +185,9 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "delete from widget where id = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, widgetId);
             result = pstm.executeUpdate();
             pstm.close();

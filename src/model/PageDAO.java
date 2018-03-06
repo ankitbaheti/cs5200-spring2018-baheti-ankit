@@ -2,9 +2,7 @@ package model;
 
 import interfaceDao.PageDAOInterface;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -31,10 +29,10 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
         DeveloperDAO dDao = DeveloperDAO.getInstance();
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into page(id, title, description, created, updated, views, website) values (?,?,?," +
                     "?,?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, page.getId());
             pstm.setString(2, page.getTitle());
             pstm.setString(3, page.getDescription());
@@ -66,9 +64,9 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
         List<Page> pageList = new ArrayList<>();
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from page;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             pageList = getPageFromRS(rs);
             pstm.close();
@@ -107,9 +105,9 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
         List<Page> pageList;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from page where id = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, pageId);
             rs = pstm.executeQuery();
             pageList = getPageFromRS(rs);
@@ -129,9 +127,9 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
         ResultSet rs;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from page where website = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, websiteId);
             rs = pstm.executeQuery();
             pageList = getPageFromRS(rs);
@@ -148,10 +146,10 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "update page set title = ?, description = ?, created = ?, updated = ?, views = ?, " +
                     "website = ? where id = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, page.getTitle());
             pstm.setString(2, page.getDescription());
             pstm.setDate(3, page.getCreated());
@@ -173,9 +171,9 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "delete from page where id =?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, pageId);
             result = pstm.executeUpdate();
             pstm.close();

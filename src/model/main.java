@@ -12,10 +12,11 @@ public class main {
         WidgetDAO widgetDAO = WidgetDAO.getInstance();
 
         Person alice = new Person(1, "Alice", "Wonder", "alice", "alice", "alice@wonder.com", null);
-        Developer dev = new Developer(1, "4321rewq", alice);
+        Developer dev = new Developer(2, "4321rewq", alice);
         int result = developerDAO.createDeveloper(dev);
         if(result == 1){
             System.out.println("success");
         }
+
     }
 }

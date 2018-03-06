@@ -9,6 +9,4 @@ public class BaseDAO {
     final String DB_URL = "jdbc:mysql://localhost/hw3_baheti_ankit_spring2018";
     final String USERNAME = "root";
     final String PASSWORD = "root";
-    Connection conn = null;
-    PreparedStatement pstm = null;
 }

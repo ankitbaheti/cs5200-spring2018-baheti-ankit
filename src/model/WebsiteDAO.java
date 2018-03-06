@@ -2,9 +2,7 @@ package model;
 
 import interfaceDao.WebsiteDAOInterface;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -31,10 +29,10 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
         DeveloperDAO dDao = DeveloperDAO.getInstance();
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into website(id, name, description, created, updated, visits, developer) values (?," +
                     "?,?,?,?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, website.getId());
             pstm.setString(2, website.getName());
             pstm.setString(3, website.getDescription());
@@ -66,9 +64,9 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
         List<Website> websiteList = new ArrayList<>();
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "Select * from website;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             websiteList = getWebsitefromRs(rs);
             pstm.close();
@@ -106,9 +104,9 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
         ResultSet rs;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from website where developer = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, developerId);
             rs = pstm.executeQuery();
             websiteList = getWebsitefromRs(rs);
@@ -127,9 +125,9 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
          List<Website> websiteList;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select * from website where id = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, websiteId);
             rs = pstm.executeQuery();
             websiteList = getWebsitefromRs(rs);
@@ -148,10 +146,10 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "update website set name = ?, description = ?, created = ?, updated = ?, visits = ?, " +
                     "developer= ? where id= ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, website.getName());
             pstm.setString(2, website.getDescription());
             pstm.setDate(3, website.getCreated());
@@ -173,9 +171,9 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "delete from website where id= ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, websiteId);
             result = pstm.executeUpdate();
             pstm.close();

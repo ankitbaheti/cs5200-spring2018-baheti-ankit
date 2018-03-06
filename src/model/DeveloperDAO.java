@@ -2,9 +2,7 @@ package model;
 
 import interfaceDao.DeveloperDAOInterface;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -29,10 +27,10 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             createPerson(developer.getPerson());
             String sql = "insert into developer(id, developerKey, person) values (?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, developer.getId());
             pstm.setString(2, developer.getDeveloperKey());
             pstm.setInt(3, developer.getPerson().getId());
@@ -48,10 +46,10 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
     private void createPerson(Person person){
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into Person(id, firstName, lastName, username, password, email, dob) values (?,?,?" +
                     ",?,?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, person.getId());
             pstm.setString(2, person.getFirstName());
             pstm.setString(3,person.getLastName());
@@ -74,9 +72,9 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         ResultSet rs = null;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select p.*, d.id, d.developerKey from person p, developer d where p.id = d.person";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             developerList = getDevelopers(rs);
             pstm.close();
@@ -117,10 +115,10 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         Developer dev = new Developer();
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select p.*, d.id, d.developerKey from person p, developer d where p.id = d.person and " +
                     "d.id = ? ;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, developerId);
             rs = pstm.executeQuery();
             developerList = getDevelopers(rs);
@@ -140,10 +138,10 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         ResultSet rs = null;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select p.*, d.id, d.developerKey from person p, developer d where d.person = p.id " +
                     "and p.username = ? ;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, username);
             rs = pstm.executeQuery();
             developerList = getDevelopers(rs);
@@ -165,10 +163,10 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         Developer dev = new Developer();
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select p.*, d.id, d.developerKey from developer d, person p where p.id = d.person and" +
                     "p.username = ? and p.password = ? ;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, username);
             pstm.setString(2, password);
             rs = pstm.executeQuery();
@@ -189,9 +187,9 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "update developer set person = ?, developerKey = ? where id = ? ;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, developer.getPerson().getId());
             pstm.setString(2, developer.getDeveloperKey());
             pstm.setInt(3, developerId);
@@ -210,10 +208,10 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "update person set firstName = ?, lastName = ?, username = ?, password = ?, email = ?, " +
                     "dob = ? where id = (select person from developer where id = ?)";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, person.getFirstName());
             pstm.setString(2, person.getLastName());
             pstm.setString(3, person.getUsername());
@@ -235,9 +233,9 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "delete from developer where id = ?";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             deletePerson(developerId);
             pstm.setInt(1, developerId);
             result = pstm.executeUpdate();
@@ -253,9 +251,9 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "delete from person where id = (select person from developer where id = ?)";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, developerId);
             result = pstm.executeUpdate();
             pstm.close();

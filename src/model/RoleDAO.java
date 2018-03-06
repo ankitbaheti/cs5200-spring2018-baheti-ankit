@@ -2,9 +2,7 @@ package model;
 
 import interfaceDao.RoleDAOInterface;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class RoleDAO extends BaseDAO implements RoleDAOInterface{
 
@@ -24,9 +22,9 @@ public class RoleDAO extends BaseDAO implements RoleDAOInterface{
     public void assignWebsiteRole(int developerId, int websiteId, int roleId) {
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into WebsiteRole(Role, Website, Developer) values (?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, roleId);
             pstm.setInt(2, websiteId);
             pstm.setInt(3, developerId);
@@ -42,9 +40,9 @@ public class RoleDAO extends BaseDAO implements RoleDAOInterface{
     public void assignPageRole(int developerId, int pageId, int roleId) {
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into PageRole(Role, Page, Developer) values (?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, roleId);
             pstm.setInt(2, pageId);
             pstm.setInt(3, developerId);
@@ -60,9 +58,9 @@ public class RoleDAO extends BaseDAO implements RoleDAOInterface{
     public void deleteWebsiteRole(int developerId, int websiteId, int roleId) {
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "delete from WebsiteRole where Developer = ? and Website = ? and Role = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, developerId);
             pstm.setInt(2, websiteId);
             pstm.setInt(3, roleId);
@@ -78,9 +76,9 @@ public class RoleDAO extends BaseDAO implements RoleDAOInterface{
     public void deletePageRole(int developerId, int pageId, int roleId) {
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "delete from PageRole where Developer = ? and Page = ? and Role = ?;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, developerId);
             pstm.setInt(2, pageId);
             pstm.setInt(3, roleId);
@@ -97,9 +95,9 @@ public class RoleDAO extends BaseDAO implements RoleDAOInterface{
         ResultSet rs = null;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "select id from Role where roleName = ? ;";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, roleName);
             rs = pstm.executeQuery();
             while (rs.next()){

@@ -2,7 +2,9 @@ package model;
 
 import interfaceDao.UserDAOInterface;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UserDAO extends BaseDAO implements UserDAOInterface{
@@ -25,10 +27,10 @@ public class UserDAO extends BaseDAO implements UserDAOInterface{
         int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             createPerson(user.getPerson());
             String sql = "insert into user(id, userAgreement, userKey, Person) values (?,?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, user.getId());
             pstm.setBoolean(2, user.getUserAgreement());
             pstm.setString(3, user.getUserKey());
@@ -46,10 +48,10 @@ public class UserDAO extends BaseDAO implements UserDAOInterface{
     private void createPerson(Person person){
         try {
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into Person(id, firstName, lastName, username, password, email, dob) values (?,?,?" +
                     ",?,?,?,?);";
-            pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, person.getId());
             pstm.setString(2, person.getFirstName());
             pstm.setString(3,person.getLastName());
