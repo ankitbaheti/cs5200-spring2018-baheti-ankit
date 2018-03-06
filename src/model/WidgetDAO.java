@@ -197,4 +197,23 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         }
         return result;
     }
+
+    public int updateWidgetOrder(Widget widget, int order){
+        int result = -1;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "update widget set `order` = case when name = ? then ? when name = \"intro456\" then 1 " +
+                    "when name = \"image345 \"then 2 else `order` end;";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, widget.getName());
+            pstm.setInt(2, order);
+            result = pstm.executeUpdate();
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

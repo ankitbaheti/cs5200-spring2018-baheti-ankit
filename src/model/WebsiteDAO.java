@@ -183,4 +183,24 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
         }
         return result;
     }
+
+    public int findWebsiteIdByName(String websiteName){
+        int websiteId = -1;
+        ResultSet rs;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "select id from website where name = ?;";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, websiteName);
+            rs = pstm.executeQuery();
+            while (rs.next())
+                websiteId = rs.getInt("id");
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return websiteId;
+    }
 }

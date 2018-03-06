@@ -88,7 +88,6 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
                 page.setCreated(rs.getDate("created"));
                 page.setUpdated(rs.getDate("updated"));
                 page.setViews(rs.getInt("views"));
-                page.getWebsite().setId(rs.getInt("website"));
                 pageList.add(page);
             }
         } catch (SQLException e) {
@@ -182,5 +181,40 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
             e.printStackTrace();
         }
         return result;
+    }
+
+    public int append(Website website, String s){
+        int result = -1;
+        Collection <Page> pageList = findPagesForWebsite(website.getId());
+        Iterator<Page> itr = pageList.iterator();
+        while(itr.hasNext()){
+            Page page = itr.next();
+            page.setTitle(s + page.getTitle());
+            updatePage(page.getId(), page);
+        }
+        return result;
+    }
+
+    public Page findPageByName(String pageName){
+        Page page = new Page();
+        ResultSet rs;
+        List<Page> pageList;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "select * from Page where title = ?;";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, pageName);
+            rs = pstm.executeQuery();
+            pageList = getPageFromRS(rs);
+            while(!pageList.isEmpty()){
+                page = pageList.get(0);
+            }
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return page;
     }
 }

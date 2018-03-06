@@ -15,6 +15,8 @@ public class Person {
     private Date dob;
     private List<Developer> developers = new ArrayList<>();
     private List<User> users = new ArrayList<>();
+    private List<Address> addresses = new ArrayList<>();
+    private List<Phone> phones = new ArrayList<>();
 
     public Person() {
         super();
@@ -113,5 +115,21 @@ public class Person {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
     }
 }
