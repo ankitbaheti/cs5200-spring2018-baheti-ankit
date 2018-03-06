@@ -90,7 +90,6 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         try {
             while(rs.next()){
                 Developer dev = new Developer();
-                dev.getPerson().setId(rs.getInt("id"));
                 dev.setFirstName(rs.getString("firstName"));
                 dev.setLastName(rs.getString("lastName"));
                 dev.setUsername(rs.getString("username"));

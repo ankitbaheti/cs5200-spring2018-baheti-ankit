@@ -28,7 +28,7 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
             Class.forName(JDBC_DRIVER);
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "insert into widget(id, name, width, height, cssClass, cssStyle, text, `order`, url, " +
-                    "shareable, expandable, src, html, type, page) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    "shareble, expandable, src, html, type, page) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, widget.getId());
             pstm.setString(2, widget.getName());
@@ -39,7 +39,7 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
             pstm.setString(7, widget.getText());
             pstm.setInt(8, widget.getOrder());
             pstm.setString(9, widget.getUrl());
-            pstm.setBoolean(10, widget.getSharable());
+            pstm.setBoolean(10, widget.getShareble());
             pstm.setBoolean(11, widget.getExpandable());
             pstm.setString(12, widget.getSrc());
             pstm.setString(13, widget.getHtml());
@@ -87,7 +87,7 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
                 widget.setText(rs.getString("text"));
                 widget.setOrder(rs.getInt("order"));
                 widget.setUrl(rs.getString("url"));
-                widget.setSharable(rs.getBoolean("shareable"));
+                widget.setShareble(rs.getBoolean("shareble"));
                 widget.setExpandable(rs.getBoolean("expandable"));
                 widget.setSrc(rs.getString("src"));
                 widget.setSize(rs.getInt("size"));
@@ -152,7 +152,7 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
             Class.forName(JDBC_DRIVER);
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "update widget set name = ?, width = ?, height = ?, cssClass = ?, cssStyle = ?, text = ?, " +
-                    "`order` = ?, url = ?, shareable = ?, expandable = ?, src = ?, size = ?, html = ?, type = ?, " +
+                    "`order` = ?, url = ?, shareble = ?, expandable = ?, src = ?, size = ?, html = ?, type = ?, " +
                     "page = ? where id = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, widget.getName());
@@ -163,7 +163,7 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
             pstm.setString(6, widget.getText());
             pstm.setInt(7, widget.getOrder());
             pstm.setString(8, widget.getUrl());
-            pstm.setBoolean(9, widget.getSharable());
+            pstm.setBoolean(9, widget.getShareble());
             pstm.setBoolean(10, widget.getExpandable());
             pstm.setString(11, widget.getSrc());
             pstm.setInt(12, widget.getSize());

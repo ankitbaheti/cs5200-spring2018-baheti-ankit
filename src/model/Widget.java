@@ -11,7 +11,7 @@ public class Widget {
     private String text;
     private int order;
     private String url;
-    private boolean sharable;
+    private boolean shareble;
     private boolean expandable;
     private String src;
     private int size;
@@ -37,7 +37,7 @@ public class Widget {
     }
 
     public Widget(int id, String name, int width, int height, String cssClass, String cssStyle, String text, int order,
-                  String url, boolean sharable, boolean expandable, String src, int size, String html, Page page, String type) {
+                  String url, boolean shareble, boolean expandable, String src, String html, Page page, String type) {
         this.id = id;
         this.name = name;
         this.width = width;
@@ -47,10 +47,9 @@ public class Widget {
         this.text = text;
         this.order = order;
         this.url = url;
-        this.sharable = sharable;
+        this.shareble = shareble;
         this.expandable = expandable;
         this.src = src;
-        this.size = size;
         this.html = html;
         this.page = page;
         this.type = type;
@@ -144,12 +143,12 @@ public class Widget {
         this.url = url;
     }
 
-    public boolean getSharable() {
-        return sharable;
+    public boolean getShareble() {
+        return shareble;
     }
 
-    public void setSharable(boolean sharable) {
-        this.sharable = sharable;
+    public void setShareble(boolean shareble) {
+        this.shareble = shareble;
     }
 
     public boolean getExpandable() {
