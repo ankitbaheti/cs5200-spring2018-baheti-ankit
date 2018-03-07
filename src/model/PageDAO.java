@@ -1,6 +1,7 @@
 package model;
 
 import interfaceDao.PageDAOInterface;
+import jdk.nashorn.internal.scripts.JD;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -185,12 +186,19 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
 
     public int append(Website website, String s){
         int result = -1;
-        Collection <Page> pageList = findPagesForWebsite(website.getId());
-        Iterator<Page> itr = pageList.iterator();
-        while(itr.hasNext()){
-            Page page = itr.next();
-            page.setTitle(s + page.getTitle());
-            updatePage(page.getId(), page);
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "update page set title = concat(?,?) where website = (select id from website where name = ?);";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, s);
+            pstm.setString(2, website.getName());
+            pstm.setString(3, website.getName());
+            result = pstm.executeUpdate();
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
         return result;
     }
@@ -216,5 +224,27 @@ public class PageDAO extends BaseDAO implements PageDAOInterface{
             e.printStackTrace();
         }
         return page;
+    }
+
+    public void removeLastUpdatedPage(String websiteName){
+        WebsiteDAO websiteDAO = WebsiteDAO.getInstance();
+        int websiteId = websiteDAO.findWebsiteIdByName(websiteName);
+        int pageId = -1;
+        ResultSet rs;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "select id from page where website = ? order by updated desc limit 1;";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, websiteId);
+            rs = pstm.executeQuery();
+            while (rs.next())
+                pageId = rs.getInt("id");
+            deletePage(pageId);
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

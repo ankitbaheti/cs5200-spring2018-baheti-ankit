@@ -184,6 +184,8 @@ public class main {
         roleDAO.swapRole("charlie", "bob" , "CNET", "CNET - Home");
 
         developerDAO.deletePrimaryAddress("alice");
-
+        widgetDAO.deleteLastWidget("Contact");
+        pageDAO.removeLastUpdatedPage("Wikipedia");
+        webDAO.deleteWebsiteByName("CNET");
     }
 }

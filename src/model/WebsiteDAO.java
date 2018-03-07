@@ -203,4 +203,9 @@ public class WebsiteDAO extends BaseDAO implements WebsiteDAOInterface {
         }
         return websiteId;
     }
+
+    public void deleteWebsiteByName(String websiteName){
+        int id = findWebsiteIdByName(websiteName);
+        deleteWebsite(id);
+    }
 }

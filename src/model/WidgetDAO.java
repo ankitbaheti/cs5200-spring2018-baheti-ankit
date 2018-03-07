@@ -216,4 +216,21 @@ public class WidgetDAO extends BaseDAO implements WidgetDAOInterface{
         }
         return result;
     }
+
+    public int  deleteLastWidget(String name){
+        int result = -1;
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "delete from widget where page = (select id from page where name = ?) order by `order` desc limit 1;";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, name);
+            result = pstm.executeUpdate();
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

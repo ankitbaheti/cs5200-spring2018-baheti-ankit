@@ -228,24 +228,6 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
         return result;
     }
 
-    private int updatePhone(String phoneNumber, int personId){
-        int result  = -1;
-        try {
-            Class.forName(JDBC_DRIVER);
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "update phones set phone = ? where person = ?;";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1, phoneNumber);
-            pstm.setInt(2, personId);
-            result = pstm.executeUpdate();
-            pstm.close();
-            conn.close();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
     @Override
     public int deleteDeveloper(int developerId) {
         int result = -1;
@@ -283,51 +265,33 @@ public class DeveloperDAO extends BaseDAO implements DeveloperDAOInterface {
     }
 
     public void changeNumber(String developerName, String phoneNumber){
-        Developer developer = findDeveloperByUsername(developerName);
-        List<Phone> phones = developer.getPerson().getPhones();
-        Iterator<Phone> itr = phones.iterator();
-        int flag = -1;
-        while (itr.hasNext()){
-            Phone phone = itr.next();
-            if (phone.isPrimary()){
-                phone.setPhone(phoneNumber);
-                updatePhone(phoneNumber, developer.getPerson().getId());
-                flag = 1;
-            }
-        }
-        if(flag == -1)
-            System.out.println("No Primary Number Present");
-    }
-
-    public void deletePrimaryAddress(String developerName){
-        Developer developer = findDeveloperByUsername(developerName);
-        List<Address> addresses = developer.getPerson().getAddresses();
-        if(addresses.isEmpty())
-            System.out.println("No Addresses present");
-        else{
-            Iterator<Address> itr = addresses.iterator();
-            while (itr.hasNext()){
-                Address address = itr.next();
-                if (address.isPrimary())
-                    deleteAddress(address.getId());
-            }
-        }
-    }
-
-    public int deleteAddress(int addressId){
-        int result = -1;
         try {
             Class.forName(JDBC_DRIVER);
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "delete from address where id = ?;";
+            String sql = "update phones set phone = ? and person = (select id from person where username = ?) and `primary` = 1;";
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, addressId);
-            result = pstm.executeUpdate();
+            pstm.setString(1, phoneNumber);
+            pstm.setString(2, developerName);
+            pstm.executeUpdate();
             pstm.close();
             conn.close();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        return result;
+    }
+
+    public void deletePrimaryAddress(String developerName){
+        try {
+            Class.forName(JDBC_DRIVER);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "delete from address where person = (select id from person where username = ?) and `primary` = 1;";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, developerName);
+            pstm.executeUpdate();
+            pstm.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

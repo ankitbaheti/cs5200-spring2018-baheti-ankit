@@ -113,53 +113,40 @@ public class RoleDAO extends BaseDAO implements RoleDAOInterface{
         return roleId;
     }
 
-    private int getRoleId(int pageId, int developerId){
-        int result = -1;
-        ResultSet rs;
+    public void swapRole(String developer1Name, String developer2Name, String websiteName, String pageName){
         try {
             Class.forName(JDBC_DRIVER);
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "select role from PageRole where developer = ? and pageId = ?;";
+            String sql = " update PageRole set Role = case when Page = (select id from Page where Website = (select " +
+                    "id from Website where name = ?) and title = ?)and Developer = (select id from Developer where " +
+                    "Person = (select id from Person where username = ?))then (select Role from (select * from pagerole)" +
+                    " as copy_pagerole where Page = " +
+                    "(select id from Page where Website = (select id from Website where name = ?) and title = ?)and " +
+                    "Developer = (select id from Developer where Person = (select id from Person where username = ?)))" +
+                    "when Page = (select id from Page where Website = (select id from Website where name = ?) and " +
+                    "title = ?)and Developer = (select id from Developer where Person = (select id from Person where " +
+                    "username = ?))then(select Role from (select * from pagerole) as copy_pr where Page = " +
+                    "(select id from Page where Website = " +
+                    "(select id from Website where name = ?) and title = ?)and Developer = (select id from Developer " +
+                    "where Person = (select id from Person where username = ?)))else Role end ;";
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, developerId);
-            pstm.setInt(2, pageId);
-            rs = pstm.executeQuery();
-            while(rs.next())
-                result = rs.getInt("role");
+            pstm.setString(1, websiteName);
+            pstm.setString(2, pageName);
+            pstm.setString(3, developer2Name);
+            pstm.setString(4,websiteName);
+            pstm.setString(5,pageName);
+            pstm.setString(6,developer1Name);
+            pstm.setString(7,websiteName);
+            pstm.setString(8,pageName);
+            pstm.setString(9,developer1Name);
+            pstm.setString(10,websiteName);
+            pstm.setString(11,pageName);
+            pstm.setString(12,developer2Name);
+            pstm.executeUpdate();
             pstm.close();
             conn.close();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        return result;
-    }
-
-    public void swapRole(String developer1Name, String developer2Name, String websiteName, String pageName){
-        DeveloperDAO developerDAO = DeveloperDAO.getInstance();
-        WebsiteDAO websiteDAO = WebsiteDAO.getInstance();
-        PageDAO pageDAO = PageDAO.getInstance();
-
-        Developer developer1 = developerDAO.findDeveloperByUsername(developer1Name);
-        Developer developer2 = developerDAO.findDeveloperByUsername(developer2Name);
-
-        int websiteId = websiteDAO.findWebsiteIdByName(websiteName);
-        int pageId = -1;
-
-        Collection<Page> pagesForWebsite = pageDAO.findPagesForWebsite(websiteId);
-        Iterator<Page> itr = pagesForWebsite.iterator();
-        while (itr.hasNext()) {
-            Page p = itr.next();
-            if(p.getTitle() == pageName)
-                pageId = p.getId();
-        }
-
-        int roleId1 = getRoleId(pageId, developer1.getId());
-        int roleId2 = getRoleId(pageId, developer2.getId());
-
-        deletePageRole(developer1.getId(), pageId, roleId1);
-        assignPageRole(developer1.getId(), pageId, roleId2);
-
-        deletePageRole(developer2.getId(), pageId, roleId2);
-        assignPageRole(developer2.getId(), pageId, roleId1);
     }
 }
