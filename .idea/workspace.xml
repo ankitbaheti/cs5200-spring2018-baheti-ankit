@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="575c8b03-e52e-44fd-bc3b-474a29a74081" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/DeveloperDAO.java" afterPath="$PROJECT_DIR$/src/model/DeveloperDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/PageDAO.java" afterPath="$PROJECT_DIR$/src/model/PageDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/RoleDAO.java" afterPath="$PROJECT_DIR$/src/model/RoleDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WebsiteDAO.java" afterPath="$PROJECT_DIR$/src/model/WebsiteDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/WidgetDAO.java" afterPath="$PROJECT_DIR$/src/model/WidgetDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/main.java" afterPath="$PROJECT_DIR$/src/model/main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -95,8 +90,8 @@
       <file leaf-file-name="main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="185" column="8" lean-forward="false" selection-start-line="185" selection-start-column="8" selection-end-line="185" selection-end-column="8" />
+            <state relative-caret-position="191">
+              <caret line="186" column="25" lean-forward="false" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -235,8 +230,8 @@
         <option value="$PROJECT_DIR$/src/model/WidgetDAO.java" />
         <option value="$PROJECT_DIR$/src/model/PageDAO.java" />
         <option value="$PROJECT_DIR$/src/model/DeveloperDAO.java" />
-        <option value="$PROJECT_DIR$/src/model/main.java" />
         <option value="$PROJECT_DIR$/src/model/RoleDAO.java" />
+        <option value="$PROJECT_DIR$/src/model/main.java" />
       </list>
     </option>
   </component>
@@ -541,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520367894158</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="completed update and delete queries">
+      <created>1520392685003</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1520392685003</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -586,7 +588,8 @@
     <MESSAGE value="made changes in DOAs" />
     <MESSAGE value="created main and made minor changes" />
     <MESSAGE value="done with update queries" />
-    <option name="LAST_COMMIT_MESSAGE" value="done with update queries" />
+    <MESSAGE value="completed update and delete queries" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed update and delete queries" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -733,7 +736,7 @@
         <state relative-caret-position="298">
           <caret line="99" column="30" lean-forward="false" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -743,7 +746,7 @@
         <state relative-caret-position="153">
           <caret line="53" column="30" lean-forward="false" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -761,7 +764,7 @@
         <state relative-caret-position="-589">
           <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -779,8 +782,8 @@
         <state relative-caret-position="26">
           <caret line="151" column="5" lean-forward="true" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
           <folding>
-            <element signature="e#3164#3165#0" expanded="true" />
-            <element signature="e#3204#3205#0" expanded="true" />
+            <element signature="e#3164#3165#0" expanded="false" />
+            <element signature="e#3204#3205#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -790,7 +793,7 @@
         <state relative-caret-position="120">
           <caret line="8" column="90" lean-forward="false" selection-start-line="8" selection-start-column="90" selection-end-line="8" selection-end-column="90" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -953,8 +956,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="185" column="8" lean-forward="false" selection-start-line="185" selection-start-column="8" selection-end-line="185" selection-end-column="8" />
+        <state relative-caret-position="191">
+          <caret line="186" column="25" lean-forward="false" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

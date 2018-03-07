@@ -178,11 +178,13 @@ public class main {
         Widget video456 = new Widget(6, "video456", 400, 300, null, null, null, 0, "https://youtu.be/h67VX51QXiQ", false, false, null, null, Preferences,"youtube");
         widgetDAO.createWidgetForPage(Preferences.getId(), video456);
 
+        // Update Queries
         developerDAO.changeNumber("charlie", "333-444-5555");
         widgetDAO.updateWidgetOrder(head345, 3);
         pageDAO.append(CNET, "CNET - ");
         roleDAO.swapRole("charlie", "bob" , "CNET", "CNET - Home");
 
+        // Delete Queries
         developerDAO.deletePrimaryAddress("alice");
         widgetDAO.deleteLastWidget("Contact");
         pageDAO.removeLastUpdatedPage("Wikipedia");
