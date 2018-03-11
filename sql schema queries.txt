@@ -1,0 +1,240 @@
+CREATE SCHEMA `hw3_baheti_ankit_spring2018` ;
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Person` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`firstName` VARCHAR(45) NOT NULL,
+`lastName` VARCHAR(45) NULL,
+`username` VARCHAR(45) NOT NULL,
+`password` VARCHAR(45) NOT NULL,
+`email` VARCHAR(45) NULL,
+`dob` DATE NULL,
+PRIMARY KEY (`id`));
+
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Developer` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`Person` INT NULL,
+`developerKey` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `Developer_Person_Generalization`
+FOREIGN KEY (`Person`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Person` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`User` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`Person` INT NULL,
+`userAgreement` TINYINT NULL,
+`userKey` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `User_Person_Generalization`
+FOREIGN KEY (`Person`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Person` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Website` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(45) NOT NULL,
+`description` VARCHAR(250) NULL,
+`created` DATE NOT NULL,
+`updated` DATE NOT NULL,
+`visits` INT NULL,
+`Developer` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `Website_Developer`
+FOREIGN KEY (`Developer`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Developer` (`id`)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION);
+
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Page` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`title` VARCHAR(45) NOT NULL,
+`description` VARCHAR(250) NULL,
+`created` DATE NOT NULL,
+`updated` DATE NOT NULL,
+`views` INT NULL,
+`Website` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `Page_Website`
+FOREIGN KEY (`Website`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Website` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Widget` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(45) NOT NULL,
+`width` INT NULL,
+`height` INT NULL,
+`cssClass` VARCHAR(45) NULL,
+`cssStyle` VARCHAR(45) NULL,
+`text` VARCHAR(45) NULL,
+`order` INT NULL,
+`url` VARCHAR(45) NULL,
+`shareble` TINYINT NULL,
+`expandable` TINYINT NULL,
+`src` VARCHAR(45) NULL,
+`size` INT NULL DEFAULT 2,
+`html` VARCHAR(45) NULL,
+`type` VARCHAR(45) NULL,
+`Page` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `Widget_Page`
+FOREIGN KEY (`Page`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Page` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Address` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`street1` VARCHAR(45) NOT NULL,
+`street2` VARCHAR(45) NULL,
+`city` VARCHAR(45) NOT NULL,
+`state` VARCHAR(45) NULL,
+`zip` VARCHAR(45) NOT NULL,
+`primary` TINYINT NOT NULL,
+`Person` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `Address_Person`
+FOREIGN KEY (`Person`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Person` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Phones` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`phone` VARCHAR(45) NOT NULL,
+`primary` TINYINT NULL,
+`Person` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `Phones_Person`
+FOREIGN KEY (`Person`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Person` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Role` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`roleName` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`id`));
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`Priviledge` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`priviledgeName` VARCHAR(45) NOT NULL,
+PRIMARY KEY (`id`));
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`PageRole` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`Role` INT NULL,
+`Page` INT NULL,
+`Developer` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `PageRole_Role`
+FOREIGN KEY (`Role`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Role` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `PageRole_Page`
+FOREIGN KEY (`Page`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Page` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `PageRole_Developer`
+FOREIGN KEY (`Developer`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Developer` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`WebsiteRole` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`Role` INT NULL,
+`Website` INT NULL,
+`Developer` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `WebsiteRole_Role`
+FOREIGN KEY (`Role`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Role` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `WebsiteRole_Website`
+FOREIGN KEY (`Website`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Website` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `WebsiteRole_Developer`
+FOREIGN KEY (`Developer`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Developer` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`PagePriviledge` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`Priviledge` INT NULL,
+`Page` INT NULL,
+`Developer` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `PagePriviledge_Priviledge`
+FOREIGN KEY (`Priviledge`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Priviledge` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `PagePriviledge_Page`
+FOREIGN KEY (`Page`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Page` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `PagePriviledge_Developer`
+FOREIGN KEY (`Developer`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Developer` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+CREATE TABLE `hw3_baheti_ankit_spring2018`.`WebsitePriviledge` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`Priviledge` INT NULL,
+`Website` INT NULL,
+`Developer` INT NULL,
+PRIMARY KEY (`id`),
+CONSTRAINT `WebsitePriviledge_Priviledge`
+FOREIGN KEY (`Priviledge`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Priviledge` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `WebsitePriviledge_Website`
+FOREIGN KEY (`Website`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Website` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT `WebsitePriviledge_Developer`
+FOREIGN KEY (`Developer`)
+REFERENCES `hw3_baheti_ankit_spring2018`.`Developer` (`id`)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
+
+
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Role`
+(`roleName`) VALUES ("owner");
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Role`
+(`roleName`) VALUES ("admin");
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Role`
+(`roleName`) VALUES ("writer");
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Role`
+(`roleName`) VALUES ("editor");
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Role`
+(`roleName`) VALUES ("reviewer");
+
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Priviledge`
+(`priviledgeName`) VALUES ("create");
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Priviledge`
+(`priviledgeName`) VALUES ("read");
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Priviledge`
+(`priviledgeName`) VALUES ("update");
+INSERT INTO `hw3_baheti_ankit_spring2018`.`Priviledge`
+(`priviledgeName`) VALUES ("delete");
